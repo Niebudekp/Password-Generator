@@ -1,0 +1,233 @@
+/* Define color variables */
+:root {
+  --primary-color: #3498db;
+  --primary-color-dark: #2980b9;
+  --secondary-color: #424242;
+  --background-color: #f8f9fa;
+  --border-color: #e0e0e0;
+  --content-background-color: #ffffff;
+  --password-display-background: #ecf0f1;
+  --gradient-color-start: #6a11cb;
+  --gradient-color-middle: #2575fc;
+  --gradient-color-end: #4b6cb7;
+}
+
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto+Condensed:ital,wght@0,400;1,300&family=Victor+Mono:wght@300&display=swap");
+
+/* Global styles */
+body {
+  background: var(--background-color);
+  font-family: "Poppins", sans-serif;
+  padding-top: 50px;
+  background: linear-gradient(-45deg, var(--gradient-color-start), var(--gradient-color-middle), var(--gradient-color-end));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite
+}
+
+/* Container styles */
+.container {
+  max-width: 500px;
+  border-radius: 15px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow);
+  background: var(--content-background-color);
+  padding: 20px;
+  text-align: start;
+}
+
+/* Heading styles */
+h2 {
+  color: var(--secondary-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Form styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-check-label {
+  position: relative;
+  transition: all var(--transition-speed) ease;
+}
+
+.form-check-label:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--primary-color);
+  animation: underline var(--transition-speed) ease-in-out;
+}
+
+/* Button styles */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  transition: all var(--transition-speed) ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-color-dark);
+  border-color: var(--primary-color-dark);
+}
+
+/* Password display styles */
+#passwordDisplay {
+  font-size: 1.3rem;
+  color: var(--secondary-color);
+  background: var(--password-display-background);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  transition: all var(--transition-speed) ease;
+  display: inline-block;
+  width: 320px;
+}
+
+#passwordDisplay:hover {
+  transform: scale(1.02);
+}
+
+@keyframes underline {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Custom alert styles */
+.custom-alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  box-shadow: var(--box-shadow);
+  display: none;
+  z-index: 9999;
+}
+
+.custom-alert p {
+  margin: 0;
+}
+
+.custom-alert button {
+  margin-top: 10px;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+///
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  border: 12px solid var(--background-color);
+  border-radius: 50%;
+  border-top: 12px solid var(--primary-color);
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+/* Styling for hover 3D transform on buttons */
+.btn-primary {
+  transform-style: preserve-3d;
+  perspective: 600px;
+}
+
+.btn-primary:hover {
+  animation: buttonHover 0.5s forwards;
+}
+
+/* Typewriter text animation */
+.typewriter h1 {
+  overflow: hidden;
+  border-right: 0.15em solid orange;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+
+
+@keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+/* Responsive design adjustments */
+
+/* For screens up to 1024px wide */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 768px;
+  }
+  label {
+    font-size: 0.9rem;
+  }
+}
+
+/* For screens up to 768px wide */
+@media (max-width: 768px) {
+  .container {
+    max-width: 425px;
+  }
+}
+@media (max-width: 425px) {
+  .container {
+    max-width: 375px;
+    transform: scale(0.9);
+    transition: all 0.5s ease;
+  }
+
+  .container:hover {
+    transform: scale(1);
+  }
+}
